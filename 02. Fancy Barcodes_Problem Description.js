@@ -2,7 +2,8 @@ function fancyBarcodesProgram(params) {
     let number = params.shift()
     number = Number(number)
     for (let i = 0; i < number; i++) {
-        let pattern = /(@[#]{1,})(?<code>[A-Z]([A-Za-z\d]{4,})[A-Z])\1/g;
+        //let pattern = /(?<start>@#+)(?<code>[A-Z][a-z\dA-Z]{4,}[A-Z])(?<end>@#+)/;
+        let pattern = /(@#+)(?<code>[A-Z][A-Za-z\d]{4,}[A-Z])(@#+)/g;
         let match = pattern.exec(params[i])
         if (match) {
             let product = match.groups.code
